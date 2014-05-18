@@ -1,6 +1,70 @@
-body {font-family: 'press_start_2pregular';}
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
 
-div {font-family: 'press_start_2pregular';}
+/*========================
+ * BASE
+ *========================*/
 
-input {display:block;}
+html {
+    background: #000;
+}
+
+body {
+    font-family: 'press_start_2pregular';
+    color: #fff;
+}
+
+a,
+a:link,
+a:visited {
+    text-decoration: underline;
+    color: #fff;
+}
+
+/*========================
+ * FORM
+ *========================*/
+
 input {font-family: 'press_start_2pregular';}
+input[type="text"] {
+    padding: 8px;
+}
+
+input[type="submit"] {
+    border: 4px solid #fff;
+    background: #000;
+    outline: 0;
+    padding: 8px;
+    color: #fff;
+}
+
+hr {
+    margin: 16px 0;
+    border-top: 4px solid #fff;
+    border-bottom: 0;
+    height: 0;
+}
+
+/*========================
+ * BODY
+ *========================*/
+
+.body-container {
+    max-width: 940px;
+    margin: 20px auto;
+}
+
+.landing-intro {
+    margin: auto;
+}
+
+.centred {
+    text-align: center;
+}
+
+h1.title {
+    font-size: 3em;
+}
