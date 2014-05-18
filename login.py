@@ -38,6 +38,7 @@ class LoginPage(webapp2.RequestHandler):
         conn.request("GET", "/agilehackathon/rest/login/"+login_name)
         r1 = conn.getresponse()
         print r1.status, r1.reason
+        
         if r1.status == 200:
             #self.response.out.write("<html>Hi %s! You've logged in successfully'</html>" % login_name)
             pracURL = "/agilehackathon/rest/practices/"+login_name
@@ -45,15 +46,18 @@ class LoginPage(webapp2.RequestHandler):
             conn.request("GET", pracURL)
             r2 = conn.getresponse()
             print "Logged in and getting list:", r2.status, r2.reason
+            
             if r2.status == 200:
-                #response = r2.load()#urllib.urlopen(pracURL)
                 #data = json.loads(r2.read())
-                print data
-#                html=''
-#                for e in data:
-#                    html+=" "+e.name
-#                self.response.out.write(html)
+                
+                prac_list=[]
+                for e in data:
+                    prac_list.append(e['name'])
+                
+                template = JINJA_ENVIRONMENT.get_template('templates/practices.html')
+                self.response.out.write(template.render(practices=data))#, name=login_name)
             #self.redirect('/list'+login_name)
+        
         else:
             self.response.out.write("<html>Something went wrong! :-( <br> User not recognized...</html>")
         conn.close()

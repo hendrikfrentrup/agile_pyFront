@@ -9,6 +9,20 @@
 
 <body>
 
+<div class='practices'>
+
+{% for p in practices %}
+  <div class='indiv_practice'>
+  {{ p['name'] }}
+
+  <form action=>
+  <input type="hidden" name="Id#" value="{{ p['id'] }}">
+  <input type="submit" value="Join Q"></form>
+  </div>
+{% endfor %}
+
+</div>
+
 </body>
 
 </html>
