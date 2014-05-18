@@ -55,7 +55,7 @@ class LoginPage(webapp2.RequestHandler):
                     prac_list.append(e['name'])
                 
                 template = JINJA_ENVIRONMENT.get_template('templates/practices.html')
-                self.response.out.write(template.render(practices=data))#, name=login_name)
+                self.response.out.write(template.render(practices=data, name=login_name))
             #self.redirect('/list'+login_name)
         
         else:

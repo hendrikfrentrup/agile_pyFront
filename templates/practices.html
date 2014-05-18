@@ -14,7 +14,9 @@
 {% for p in practices %}
   <div class='indiv_practice'>
   {{ p['name'] }}
-
+  <br>
+  <a href="http://192.168.3.64:8080/agilehackathon/rest/practices/{{ p['id'] }}/joinQueue/{{ name }}">Join Q</a>
+  <br>
   <form action=>
   <input type="hidden" name="Id#" value="{{ p['id'] }}">
   <input type="submit" value="Join Q"></form>
