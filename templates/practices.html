@@ -6,26 +6,19 @@
     <link rel="stylesheet" href="stylesheets/default.css" type="text/css" charset="utf-8" />
 </head>
 <body>
-
-    <div class='practices'>
-
-    {% for p in practices %}
-      <div class='indiv_practice'>
-      {{ p['name'] }}
-      <br>
-      <a href="http://192.168.3.64:8080/agilehackathon/rest/practices/{{ p['id'] }}/joinQueue/{{ name }}">Join Q</a>
-      <br>
-      <form action=>
-      <input type="hidden" name="Id#" value="{{ p['id'] }}">
-      <input type="submit" value="Join Q"></form>
-      </div>
-    {% endfor %}
-
-    </div>
-    <script id="hb-practice" type="text/x-handlebars-template">
-        <div class="">
-            
+    <div class="body-container">
+        <div class="js-practice-list-container">
         </div>
+    </div>
+    <script id="hb-practice-list" type="text/x-handlebars-template">
+        <ul class="practice-list">
+            {{ "{{#each practices}}" }}
+            <li class="practice">
+                <span class="name">{{ " {{ name  }}" }}</span>
+                <a href="#" class="js-queue join">Join Q</a>
+            </li>
+            {{ "{{/each}}" }}
+        </ul>
     </script>
 
     <script>
@@ -33,13 +26,13 @@
         window.qcumber.username = "{{  name  }}";
         window.qcumber.apiBaseUrl = "http://192.168.3.64:8080/agilehackathon/rest";
         window.qcumber.apiUrls = {
-            getPractices: "/practices/{loginName}",
-            joinPractice: "/practices/{practiceId}/joinQueue/{loginName}"
+            getPractices: "/practices/{{ name }}",
+            joinPractice: "/practices/{practiceId}/joinQueue/{{ name }}"
         };
     </script>
     <script src="/js/vendor/jquery-1.11.1.min.js"></script>
     <script src="/js/vendor/handlebars.runtime-v1.3.0.js"></script>
     <script src="/js/vendor/handlebars-v1.3.0.js"></script>
-    <script src="main.js"></script>
+    <script src="/js/practices.js"></script>
 </body>
 </html>

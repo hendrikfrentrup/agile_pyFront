@@ -11,6 +11,9 @@ handlers:
 - url: /assets
   static_dir: assets
 
+- url: /js
+  static_dir: js
+
 - url: /.*
   script: login.app
   

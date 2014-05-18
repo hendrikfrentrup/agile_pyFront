@@ -68,3 +68,24 @@ hr {
 h1.title {
     font-size: 3em;
 }
+
+/*========================
+ * PRACTICES
+ *========================*/
+.practice-list {
+    list-style: none;
+    display: block;
+}
+
+.practice {
+    display: block;
+    width: 300px;
+    border: 4px solid #fff;
+    margin: 10px 0;
+    padding: 20px;
+}
+
+.practice .join {
+    display: block;
+    margin: 5px 0;
+}
